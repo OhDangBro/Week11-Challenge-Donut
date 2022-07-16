@@ -36,9 +36,12 @@ app.get('/api/notes', (req,res) => {
     res.json(obj)
   });
   
-}
+})
 
-)
+app.post('/api/notes', (req, res) => {
+  console.log(req.body);
+
+})
 
 
 
