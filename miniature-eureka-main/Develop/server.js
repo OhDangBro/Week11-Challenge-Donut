@@ -30,8 +30,10 @@ app.get('/notes', (req, res) =>
 //API route 
 app.get('/api/notes', (req,res) => {
   fs.readFile('./db/db.json', "utf8", (err, data) => {
+    const obj = JSON.parse(data);
     if (err) throw err;
     console.log(data);
+    res.json(obj)
   });
   
 }
