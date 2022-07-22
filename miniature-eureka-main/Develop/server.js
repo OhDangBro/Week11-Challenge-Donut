@@ -41,6 +41,25 @@ app.post('/api/notes', (req, res) => {
   fs.writeFileSync('./db/db.json', JSON.stringify(notes))
     res.json(notes);
   })
+  
+  app.delete("/api/notes/", (req, res) => {
+    let chosenNoteToDelete = req.params.id;
+    fs.readFile(__dirname + "/db/db.json", (err, data) => {
+        res.json(notes);
+
+        
+
+        fs.writeFile(__dirname + "/db/db.json", JSON.stringify(json), (err) => {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+                return;
+            }
+            res.send("Successfully deleted");
+        });
+    });
+});
+  
 
 // Listen for Port
 app.listen(PORT, () =>
