@@ -42,8 +42,8 @@ app.post('/api/notes', (req, res) => {
     res.json(notes);
   })
   
-  app.delete("/api/notes/", (req, res) => {
-    let chosenNoteToDelete = req.params.id;
+  app.delete("/api/notes/:id", (req, res) => {
+    let chosenNoteToDelete = req.params.id; 
     fs.readFile(__dirname + "/db/db.json", (err, data) => {
         res.json(notes);
 
